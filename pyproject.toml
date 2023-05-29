@@ -1,0 +1,18 @@
+[tool.poetry]
+name = "reddit-bot"
+version = "0.1.0"
+description = ""
+authors = ["tobias <tobias@tobias-leong.dev>"]
+license = "\\"
+readme = "README.md"
+packages = [{include = "reddit_bot"}]
+
+[tool.poetry.dependencies]
+python = "^3.8"
+praw = "^7.7.0"
+load-dotenv = "^0.1.0"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
