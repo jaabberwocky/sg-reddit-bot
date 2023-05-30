@@ -14,7 +14,23 @@ reddit = praw.Reddit(
     client_secret=REDDIT_CLIENT_SECRET,
     username=REDDIT_USERNAME,
     password=REDDIT_PASSWORD,
-    user_agent="jagstero's first reddit bot")
+    user_agent="reddit bot")
 
-for comment in reddit.subreddit("singapore").stream.comments():
-    print(f"New comment by {comment.author} in {comment.parent_id}: {comment.body}")
+
+def is_alphabetical_order(word):
+    return word == "".join(sorted(word))
+
+
+def has_69_char(body: str) -> bool:
+    return len(body) == 69
+
+
+if __name__ == "__main__":
+    for comment in reddit.subreddit("asksingapore").stream.comments():
+        print(
+            f"New comment by {comment.author} in {comment.parent_id}: {comment.body}")
+
+        if has_69_char(comment.body):
+            print("***Comment has 69 characters!***")
+            print(
+                f"{comment.id} by {comment.author} in {comment.parent_id}: {comment.body}")
